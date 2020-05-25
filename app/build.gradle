@@ -85,6 +85,7 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
 
     //picasso
     implementation "com.squareup.picasso:picasso:$picasso_version"
@@ -105,8 +106,6 @@ dependencies {
 
     //Timber Logger
     implementation 'com.jakewharton.timber:timber:4.7.1'
-
-    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'

@@ -1,8 +1,9 @@
 package com.prasad.socialnetworkandroidmvvm.data.remote;
 
-import com.prasad.socialnetworkandroidmvvm.BuildConfig;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.LoginRequest;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.LoginResponse;
+import com.prasad.socialnetworkandroidmvvm.data.model.api.RegisterRequest;
+import com.prasad.socialnetworkandroidmvvm.data.model.api.RegisterResponse;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -16,13 +17,10 @@ import io.reactivex.Single;
 @Singleton
 public class AppApiHelper implements ApiHelper {
 
-    private ApiHeader mApiHeader;
-
     private SocialNetworkService mNetworkService;
 
     @Inject
-    public AppApiHelper(ApiHeader apiHeader, SocialNetworkService networkService) {
-        mApiHeader = apiHeader;
+    public AppApiHelper(SocialNetworkService networkService) {
         mNetworkService =  networkService;
     }
 
@@ -32,7 +30,8 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public ApiHeader getApiHeader() {
-        return mApiHeader;
+    public Single<RegisterResponse> doServerRegisterApiCall(RegisterRequest.ServerRegisterRequest request) {
+        return mNetworkService.registerNewUser(request);
     }
+
 }

@@ -8,8 +8,6 @@ import com.prasad.socialnetworkandroidmvvm.data.remote.SocialNetworkService;
 import com.prasad.socialnetworkandroidmvvm.ui.base.BaseViewModel;
 import com.prasad.socialnetworkandroidmvvm.utils.rx.SchedulerProvider;
 
-import timber.log.Timber;
-
 /**
  * Created By Prasad on 2020-05-23.
  */
@@ -37,7 +35,6 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
 
     public void login(String userId) {
         setIsLoading(true);
-        Timber.d(userId);
         getCompositeDisposable().add(getDataManager().doServerLoginApiCall(new LoginRequest.ServerLoginRequest(userId))
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())

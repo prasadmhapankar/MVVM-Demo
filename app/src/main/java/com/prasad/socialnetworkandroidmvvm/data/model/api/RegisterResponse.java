@@ -1,34 +1,31 @@
 package com.prasad.socialnetworkandroidmvvm.data.model.api;
 
-import androidx.room.Entity;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created By Prasad on 2020-05-24.
+ * Created By Prasad on 2020-05-25.
  */
 
-@Entity
-public class LoginResponse {
 
+public class RegisterResponse {
     @Expose
     @SerializedName("_meta")
-    private MetaResponse meta;
+    private RegisterResponse.MetaResponse meta;
 
     @Expose
     @SerializedName("result")
-    private LoginResponseResult result;
-
-    public LoginResponseResult getResult() {
-        return result;
-    }
+    private RegisterResponse.RegisterResponseResult result;
 
     public MetaResponse getMeta() {
         return meta;
     }
 
-    public class LoginResponseResult{
+    public RegisterResponseResult getResult() {
+        return result;
+    }
+
+    public class RegisterResponseResult{
 
         @Expose
         @SerializedName("email")
@@ -66,9 +63,16 @@ public class LoginResponse {
         @Expose
         @SerializedName("success")
         private Boolean status;
+        @Expose
+        @SerializedName("message")
+        private String message;
 
         public Boolean getStatus() {
             return status;
+        }
+
+        public String getMessage() {
+            return message;
         }
     }
 }

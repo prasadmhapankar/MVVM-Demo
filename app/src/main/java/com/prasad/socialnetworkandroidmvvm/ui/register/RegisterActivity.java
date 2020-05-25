@@ -54,7 +54,7 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, Regi
 
     @Override
     public void handleError(Throwable throwable) {
-
+        Toast.makeText(this, getString(R.string.invalid_register_details), Toast.LENGTH_SHORT).show();
     }
 
     @Override

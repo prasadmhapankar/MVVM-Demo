@@ -14,11 +14,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.navigation.NavigationView;
-import com.prasad.socialnetworkandroidmvvm.BuildConfig;
 import com.prasad.socialnetworkandroidmvvm.R;
 import com.prasad.socialnetworkandroidmvvm.ViewModelProviderFactory;
 import com.prasad.socialnetworkandroidmvvm.databinding.ActivityMainBinding;
-import com.prasad.socialnetworkandroidmvvm.databinding.AppBarMainBinding;
 import com.prasad.socialnetworkandroidmvvm.databinding.NavHeaderMainBinding;
 import com.prasad.socialnetworkandroidmvvm.ui.base.BaseActivity;
 import com.prasad.socialnetworkandroidmvvm.ui.login.LoginActivity;
@@ -116,7 +114,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     private void setupNavMenu() {
         NavHeaderMainBinding navHeaderMainBinding = DataBindingUtil.inflate(getLayoutInflater(),
                 R.layout.nav_header_main, mActivityMainBinding.navView, false);
-       // mActivityMainBinding.navView.addHeaderView(navHeaderMainBinding.getRoot());
+        mActivityMainBinding.navView.addHeaderView(navHeaderMainBinding.getRoot());
         navHeaderMainBinding.setViewModel(mMainViewModel);
 
         mNavigationView.setNavigationItemSelectedListener(

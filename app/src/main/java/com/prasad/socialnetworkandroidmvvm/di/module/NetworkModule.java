@@ -1,6 +1,5 @@
 package com.prasad.socialnetworkandroidmvvm.di.module;
 
-import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.prasad.socialnetworkandroidmvvm.BuildConfig;
 import com.prasad.socialnetworkandroidmvvm.data.remote.SocialNetworkService;
 
@@ -11,6 +10,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -47,8 +47,9 @@ public class NetworkModule {
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS);
 
-        client.addNetworkInterceptor(new StethoInterceptor());
-
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        client.addInterceptor(loggingInterceptor);
         return client.build();
     }
 

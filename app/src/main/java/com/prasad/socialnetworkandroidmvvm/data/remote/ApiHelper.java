@@ -2,6 +2,8 @@ package com.prasad.socialnetworkandroidmvvm.data.remote;
 
 import com.prasad.socialnetworkandroidmvvm.data.model.api.LoginRequest;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.LoginResponse;
+import com.prasad.socialnetworkandroidmvvm.data.model.api.RegisterRequest;
+import com.prasad.socialnetworkandroidmvvm.data.model.api.RegisterResponse;
 
 import io.reactivex.Single;
 
@@ -14,6 +16,6 @@ public interface ApiHelper {
 
     Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest request);
 
-    ApiHeader getApiHeader();
+    Single<RegisterResponse> doServerRegisterApiCall(RegisterRequest.ServerRegisterRequest request);
 
 }
