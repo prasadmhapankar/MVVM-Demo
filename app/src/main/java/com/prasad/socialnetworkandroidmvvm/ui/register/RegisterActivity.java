@@ -62,11 +62,11 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, Regi
         String firstname = mActivityLoginBinding.inputFirstName.getText().toString();
         String lastname = mActivityLoginBinding.inputLastName.getText().toString();
         String email = mActivityLoginBinding.inputEmail.getText().toString();
-        String password = mActivityLoginBinding.inputPassword.getText().toString();
-        //String gender = mActivityLoginBinding.inputGender.getText().toString();
-        if (mRegisterViewModel.isRegisterDetailsValid(firstname, lastname, email, password)) {
+        String gender = mActivityLoginBinding.rbMale.isChecked() ?
+                mActivityLoginBinding.rbMale.getText().toString() : mActivityLoginBinding.rbFemale.getText().toString();
+        if (mRegisterViewModel.isRegisterDetailsValid(firstname, lastname, email, gender.toLowerCase())) {
             hideKeyboard();
-            mRegisterViewModel.register(firstname, lastname, email, password);
+            mRegisterViewModel.register(firstname, lastname, email, gender.toLowerCase());
         } else {
             Toast.makeText(this, getString(R.string.invalid_register_details), Toast.LENGTH_SHORT).show();
         }

@@ -86,13 +86,23 @@ public class AppDataManager implements DataManager{
     }
 
     @Override
-    public String getCurrentUserName() {
-        return mPreferencesHelper.getCurrentUserName();
+    public String getCurrentFirstName() {
+        return mPreferencesHelper.getCurrentFirstName();
     }
 
     @Override
-    public void setCurrentUserName(String userName) {
-        mPreferencesHelper.setCurrentUserName(userName);
+    public void setCurrentFirstName(String firstName) {
+        mPreferencesHelper.setCurrentFirstName(firstName);
+    }
+
+    @Override
+    public String getCurrentLastName() {
+        return mPreferencesHelper.getCurrentLastName();
+    }
+
+    @Override
+    public void setCurrentLastName(String lastName) {
+        mPreferencesHelper.setCurrentLastName(lastName);
     }
 
     @Override
@@ -103,5 +113,19 @@ public class AppDataManager implements DataManager{
     @Override
     public ApiHeader getApiHeader() {
         return mApiHelper.getApiHeader();
+    }
+
+    @Override
+    public void setUserAsLoggedOut() {
+        updateUserInfo(null, LoggedInMode.LOGGED_IN_MODE_LOGGED_OUT, null, null, null);
+    }
+
+    @Override
+    public void updateUserInfo(Long userId, LoggedInMode loggedInMode, String firstName, String lastName, String email) {
+        setCurrentUserId(userId);
+        setCurrentUserEmail(email);
+        setCurrentUserLoggedInMode(loggedInMode);
+        setCurrentFirstName(firstName);
+        setCurrentLastName(lastName);
     }
 }

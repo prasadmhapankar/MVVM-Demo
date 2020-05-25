@@ -5,6 +5,7 @@ import android.app.Application;
 import com.prasad.socialnetworkandroidmvvm.MainApplication;
 import com.prasad.socialnetworkandroidmvvm.di.builder.ActivityBuilder;
 import com.prasad.socialnetworkandroidmvvm.di.module.AppModule;
+import com.prasad.socialnetworkandroidmvvm.di.module.NetworkModule;
 
 import javax.inject.Singleton;
 
@@ -18,7 +19,7 @@ import dagger.android.AndroidInjectionModule;
 
 
 @Singleton
-@Component(modules = {AndroidInjectionModule.class, AppModule.class, ActivityBuilder.class})
+@Component(modules = {AndroidInjectionModule.class, AppModule.class, NetworkModule.class, ActivityBuilder.class})
 public interface AppComponent {
 
     void inject(MainApplication app);

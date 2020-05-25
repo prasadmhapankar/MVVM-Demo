@@ -20,7 +20,11 @@ public interface PreferencesHelper {
 
     void setCurrentUserLoggedInMode(DataManager.LoggedInMode mode);
 
-    String getCurrentUserName();
+    String getCurrentFirstName();
 
-    void setCurrentUserName(String userName);
+    void setCurrentFirstName(String firstName);
+
+    String getCurrentLastName();
+
+    void setCurrentLastName(String lastName);
 }

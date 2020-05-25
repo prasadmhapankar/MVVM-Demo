@@ -1,5 +1,6 @@
 package com.prasad.socialnetworkandroidmvvm.data.remote;
 
+import com.prasad.socialnetworkandroidmvvm.BuildConfig;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.LoginRequest;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.LoginResponse;
 
@@ -17,14 +18,17 @@ public class AppApiHelper implements ApiHelper {
 
     private ApiHeader mApiHeader;
 
+    private SocialNetworkService mNetworkService;
+
     @Inject
-    public AppApiHelper(ApiHeader apiHeader) {
+    public AppApiHelper(ApiHeader apiHeader, SocialNetworkService networkService) {
         mApiHeader = apiHeader;
+        mNetworkService =  networkService;
     }
 
     @Override
     public Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest request) {
-        return null;
+        return mNetworkService.loginUser(request.getUserId());
     }
 
     @Override

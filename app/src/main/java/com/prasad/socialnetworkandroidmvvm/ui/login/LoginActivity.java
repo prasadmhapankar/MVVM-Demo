@@ -53,17 +53,17 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     public void handleError(Throwable throwable) {
         // handle error
+        Toast.makeText(this, getString(R.string.invalid_details), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void login() {
-        String email = mActivityLoginBinding.inputEmail.getText().toString();
-        String password = mActivityLoginBinding.inputPassword.getText().toString();
-        if (mLoginViewModel.isEmailAndPasswordValid(email, password)) {
+        String userId = mActivityLoginBinding.inputUserId.getText().toString();
+        if (mLoginViewModel.isUserIdValid(userId)) {
             hideKeyboard();
-            mLoginViewModel.login(email, password);
+            mLoginViewModel.login(userId);
         } else {
-            Toast.makeText(this, getString(R.string.invalid_email_password), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.invalid_details), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -83,7 +83,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     public void openRegisterActivity() {
         Intent intent = RegisterActivity.newIntent(LoginActivity.this);
         startActivity(intent);
-        finish();
+       // finish();
     }
 
     @Override

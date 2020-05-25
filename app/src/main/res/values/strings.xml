@@ -9,7 +9,7 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_logout">Logout</string>
-    <string name="invalid_email_password">Invalid Email or Password</string>
+    <string name="invalid_details">Invalid login details!!</string>
     <string name="signup">SignUp</string>
     <string name="new_here">New Here?</string>
     <string name="login">Login</string>
@@ -28,4 +28,7 @@
     <string name="register">Register</string>
     <string name="enter_first_name">Enter First Name</string>
     <string name="enter_last_name">Enter Last Name</string>
+    <string name="enter_user_id">Enter User ID</string>
+    <string name="open_drawer">Drawer Open</string>
+    <string name="close_drawer">Drawer Close</string>
 </resources>

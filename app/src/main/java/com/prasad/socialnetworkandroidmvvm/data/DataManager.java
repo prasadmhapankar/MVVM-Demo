@@ -11,6 +11,14 @@ import com.prasad.socialnetworkandroidmvvm.data.remote.ApiHelper;
 
 public interface DataManager extends DbHelper, PreferencesHelper, ApiHelper {
 
+    void setUserAsLoggedOut();
+
+    void updateUserInfo(
+            Long userId,
+            LoggedInMode loggedInMode,
+            String firstName,
+            String lastName,
+            String email);
 
     enum LoggedInMode {
 

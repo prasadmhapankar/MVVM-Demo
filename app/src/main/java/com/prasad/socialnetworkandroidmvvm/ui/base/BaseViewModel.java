@@ -4,6 +4,7 @@ import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.ViewModel;
 
 import com.prasad.socialnetworkandroidmvvm.data.DataManager;
+import com.prasad.socialnetworkandroidmvvm.data.remote.SocialNetworkService;
 import com.prasad.socialnetworkandroidmvvm.utils.rx.SchedulerProvider;
 
 import java.lang.ref.WeakReference;
@@ -17,6 +18,8 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public abstract class BaseViewModel<N> extends ViewModel {
 
+    private final SocialNetworkService mNetworkService;
+
     private final DataManager mDataManager;
 
     private final ObservableBoolean mIsLoading = new ObservableBoolean();
@@ -27,8 +30,9 @@ public abstract class BaseViewModel<N> extends ViewModel {
 
     private WeakReference<N> mNavigator;
 
-    public BaseViewModel(DataManager dataManager,
+    public BaseViewModel(SocialNetworkService networkService, DataManager dataManager,
                          SchedulerProvider schedulerProvider) {
+        this.mNetworkService = networkService;
         this.mDataManager = dataManager;
         this.mSchedulerProvider = schedulerProvider;
         this.mCompositeDisposable = new CompositeDisposable();
@@ -68,4 +72,7 @@ public abstract class BaseViewModel<N> extends ViewModel {
         return mSchedulerProvider;
     }
 
+    public SocialNetworkService getmNetworkService() {
+        return mNetworkService;
+    }
 }

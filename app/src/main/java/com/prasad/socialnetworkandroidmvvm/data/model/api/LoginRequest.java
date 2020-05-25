@@ -19,16 +19,11 @@ public class LoginRequest {
     public static class ServerLoginRequest {
 
         @Expose
-        @SerializedName("email")
-        private String email;
+        @SerializedName("userId")
+        private String userId;
 
-        @Expose
-        @SerializedName("password")
-        private String password;
-
-        public ServerLoginRequest(String email, String password) {
-            this.email = email;
-            this.password = password;
+        public ServerLoginRequest(String userId) {
+            this.userId = userId;
         }
 
         @Override
@@ -42,25 +37,18 @@ public class LoginRequest {
 
             ServerLoginRequest that = (ServerLoginRequest) object;
 
-            if (!Objects.equals(email, that.email)) {
-                return false;
-            }
-            return Objects.equals(password, that.password);
+            return Objects.equals(userId, that.userId);
         }
 
         @Override
         public int hashCode() {
-            int result = email != null ? email.hashCode() : 0;
-            result = 31 * result + (password != null ? password.hashCode() : 0);
+            int result = userId != null ? userId.hashCode() : 0;
             return result;
         }
 
-        public String getEmail() {
-            return email;
+        public String getUserId() {
+            return userId;
         }
 
-        public String getPassword() {
-            return password;
-        }
     }
 }

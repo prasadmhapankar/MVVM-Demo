@@ -20,7 +20,9 @@ public class AppPreferencesHelper implements PreferencesHelper{
 
     private static final String PREF_KEY_CURRENT_USER_ID = "PREF_KEY_CURRENT_USER_ID";
 
-    private static final String PREF_KEY_CURRENT_USER_NAME = "PREF_KEY_CURRENT_USER_NAME";
+    private static final String PREF_KEY_CURRENT_FIRST_NAME = "PREF_KEY_CURRENT_FIRST_NAME";
+
+    private static final String PREF_KEY_CURRENT_LAST_NAME = "PREF_KEY_CURRENT_LAST_NAME";
 
     private static final String PREF_KEY_USER_LOGGED_IN_MODE = "PREF_KEY_USER_LOGGED_IN_MODE";
 
@@ -65,12 +67,23 @@ public class AppPreferencesHelper implements PreferencesHelper{
     }
 
     @Override
-    public String getCurrentUserName() {
-        return mPrefs.getString(PREF_KEY_CURRENT_USER_NAME, null);
+    public String getCurrentFirstName() {
+        return mPrefs.getString(PREF_KEY_CURRENT_FIRST_NAME, null);
     }
 
     @Override
-    public void setCurrentUserName(String userName) {
-        mPrefs.edit().putString(PREF_KEY_CURRENT_USER_NAME, userName).apply();
+    public void setCurrentFirstName(String firstName) {
+        mPrefs.edit().putString(PREF_KEY_CURRENT_FIRST_NAME, firstName).apply();
     }
+
+    @Override
+    public String getCurrentLastName() {
+        return mPrefs.getString(PREF_KEY_CURRENT_LAST_NAME, null);
+    }
+
+    @Override
+    public void setCurrentLastName(String lastName) {
+        mPrefs.edit().putString(PREF_KEY_CURRENT_LAST_NAME, lastName).apply();
+    }
+
 }

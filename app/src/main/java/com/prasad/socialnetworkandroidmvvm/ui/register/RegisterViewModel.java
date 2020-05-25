@@ -3,6 +3,7 @@ package com.prasad.socialnetworkandroidmvvm.ui.register;
 import android.text.TextUtils;
 
 import com.prasad.socialnetworkandroidmvvm.data.DataManager;
+import com.prasad.socialnetworkandroidmvvm.data.remote.SocialNetworkService;
 import com.prasad.socialnetworkandroidmvvm.ui.base.BaseViewModel;
 import com.prasad.socialnetworkandroidmvvm.utils.CommonUtils;
 import com.prasad.socialnetworkandroidmvvm.utils.rx.SchedulerProvider;
@@ -13,8 +14,8 @@ import com.prasad.socialnetworkandroidmvvm.utils.rx.SchedulerProvider;
 
 
 public class RegisterViewModel extends BaseViewModel<RegisterNavigator> {
-    public RegisterViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
-        super(dataManager, schedulerProvider);
+    public RegisterViewModel(SocialNetworkService networkService, DataManager dataManager, SchedulerProvider schedulerProvider) {
+        super(networkService, dataManager, schedulerProvider);
     }
 
     public boolean isRegisterDetailsValid(String firstname, String lastname, String email, String password) {

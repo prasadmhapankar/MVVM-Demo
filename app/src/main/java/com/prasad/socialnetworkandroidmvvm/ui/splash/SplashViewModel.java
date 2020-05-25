@@ -1,8 +1,7 @@
 package com.prasad.socialnetworkandroidmvvm.ui.splash;
 
-import android.os.Handler;
-
 import com.prasad.socialnetworkandroidmvvm.data.DataManager;
+import com.prasad.socialnetworkandroidmvvm.data.remote.SocialNetworkService;
 import com.prasad.socialnetworkandroidmvvm.ui.base.BaseViewModel;
 import com.prasad.socialnetworkandroidmvvm.utils.rx.SchedulerProvider;
 
@@ -13,8 +12,8 @@ import com.prasad.socialnetworkandroidmvvm.utils.rx.SchedulerProvider;
 
 public class SplashViewModel extends BaseViewModel<SplashNavigator> {
 
-    public SplashViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
-        super(dataManager, schedulerProvider);
+    public SplashViewModel(SocialNetworkService networkService, DataManager dataManager, SchedulerProvider schedulerProvider) {
+        super(networkService, dataManager, schedulerProvider);
     }
 
     public void startApp() {
