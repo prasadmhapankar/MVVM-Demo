@@ -107,7 +107,15 @@ dependencies {
     //Timber Logger
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    // dependencies for local unit tests
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger2_version"
+
+    // UI Testing
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger2_version"
+
 }

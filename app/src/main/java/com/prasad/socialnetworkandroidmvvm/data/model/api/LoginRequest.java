@@ -24,6 +24,26 @@ public class LoginRequest {
             this.userId = userId;
         }
 
+        @Override
+        public boolean equals(Object object) {
+            if (this == object) {
+                return true;
+            }
+            if (object == null || getClass() != object.getClass()) {
+                return false;
+            }
+
+            ServerLoginRequest that = (ServerLoginRequest) object;
+
+
+            return userId != null ? userId.equals(that.userId) : that.userId == null;
+        }
+
+        @Override
+        public int hashCode() {
+            return userId != null ? userId.hashCode() : 0;
+        }
+
         public String getUserId() {
             return userId;
         }

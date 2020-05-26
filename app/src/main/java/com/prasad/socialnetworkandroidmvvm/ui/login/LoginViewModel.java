@@ -48,8 +48,6 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
                                 response.getResult().getLastName(),
                                 response.getResult().getUserEmail());
                         getNavigator().openMainActivity();
-                    } else {
-                        getNavigator().handleError(null);
                     }
                 }, throwable -> {
                     setIsLoading(false);

@@ -10,6 +10,9 @@ buildscript {
     ext.room_version = '2.2.3'
     ext.gsonVersion = '2.8.2'
     ext.paging_version = "2.1.1"
+    ext.junitVersion ="4.12"
+    ext.espressoVersion = '3.2.0'
+    ext.mockitoVersion = '2.15.0'
 
     repositories {
         google()
