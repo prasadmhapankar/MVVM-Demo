@@ -8,6 +8,7 @@ import com.prasad.socialnetworkandroidmvvm.data.DataManager;
 import com.prasad.socialnetworkandroidmvvm.data.remote.SocialNetworkService;
 import com.prasad.socialnetworkandroidmvvm.ui.login.LoginViewModel;
 import com.prasad.socialnetworkandroidmvvm.ui.main.MainViewModel;
+import com.prasad.socialnetworkandroidmvvm.ui.main.posts.PostsViewModel;
 import com.prasad.socialnetworkandroidmvvm.ui.register.RegisterViewModel;
 import com.prasad.socialnetworkandroidmvvm.ui.splash.SplashViewModel;
 import com.prasad.socialnetworkandroidmvvm.utils.rx.SchedulerProvider;
@@ -45,7 +46,10 @@ public class ViewModelProviderFactory extends ViewModelProvider.NewInstanceFacto
         } else if(modelClass.isAssignableFrom(RegisterViewModel.class)) {
             //noinspection unchecked
             return (T) new RegisterViewModel(networkService, dataManager,schedulerProvider);
-        }else if(modelClass.isAssignableFrom(MainViewModel.class)) {
+        }else if(modelClass.isAssignableFrom(PostsViewModel.class)) {
+            //noinspection unchecked
+            return (T) new PostsViewModel(networkService, dataManager,schedulerProvider);
+        } else if(modelClass.isAssignableFrom(MainViewModel.class)) {
             //noinspection unchecked
             return (T) new MainViewModel(networkService, dataManager,schedulerProvider);
         }

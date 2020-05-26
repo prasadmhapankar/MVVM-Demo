@@ -7,6 +7,8 @@ import com.prasad.socialnetworkandroidmvvm.data.local.db.DbHelper;
 import com.prasad.socialnetworkandroidmvvm.data.local.prefs.PreferencesHelper;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.LoginRequest;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.LoginResponse;
+import com.prasad.socialnetworkandroidmvvm.data.model.api.PostsRequest;
+import com.prasad.socialnetworkandroidmvvm.data.model.api.PostsResponse;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.RegisterRequest;
 import com.prasad.socialnetworkandroidmvvm.data.model.api.RegisterResponse;
 import com.prasad.socialnetworkandroidmvvm.data.model.db.User;
@@ -114,6 +116,11 @@ public class AppDataManager implements DataManager{
     @Override
     public Single<RegisterResponse> doServerRegisterApiCall(RegisterRequest.ServerRegisterRequest request) {
         return mApiHelper.doServerRegisterApiCall(request);
+    }
+
+    @Override
+    public Single<PostsResponse> getPostsApiCall(PostsRequest postsRequest) {
+        return mApiHelper.getPostsApiCall(postsRequest);
     }
 
     @Override

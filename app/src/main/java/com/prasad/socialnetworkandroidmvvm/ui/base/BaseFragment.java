@@ -1,18 +1,17 @@
 package com.prasad.socialnetworkandroidmvvm.ui.base;
 
-import android.view.View;
-
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import dagger.android.support.AndroidSupportInjection;
 
 import dagger.android.support.AndroidSupportInjection;
 
@@ -28,29 +27,17 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
     private T mViewDataBinding;
     private V mViewModel;
 
-    /**
-     * Override for set binding variable
-     *
-     * @return variable id
-     */
     public abstract int getBindingVariable();
 
-    /**
-     * @return layout resource id
-     */
     public abstract
     @LayoutRes
     int getLayoutId();
 
-    /**
-     * Override for set view model
-     *
-     * @return view model instance
-     */
     public abstract V getViewModel();
 
     @Override
     public void onAttach(Context context) {
+        performDependencyInjection();
         super.onAttach(context);
         if (context instanceof BaseActivity) {
             BaseActivity activity = (BaseActivity) context;
@@ -61,7 +48,6 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        performDependencyInjection();
         super.onCreate(savedInstanceState);
         mViewModel = getViewModel();
         setHasOptionsMenu(false);
@@ -104,12 +90,6 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
 
     public boolean isNetworkConnected() {
         return mActivity != null && mActivity.isNetworkConnected();
-    }
-
-    public void openActivityOnTokenExpire() {
-        if (mActivity != null) {
-            mActivity.openActivityOnTokenExpire();
-        }
     }
 
     private void performDependencyInjection() {

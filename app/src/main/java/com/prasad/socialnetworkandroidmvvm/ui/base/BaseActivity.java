@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
-import com.prasad.socialnetworkandroidmvvm.ui.login.LoginActivity;
 import com.prasad.socialnetworkandroidmvvm.utils.CommonUtils;
 import com.prasad.socialnetworkandroidmvvm.utils.NetworkUtils;
 
@@ -33,25 +32,12 @@ public abstract class BaseActivity <T extends ViewDataBinding, V extends BaseVie
     private T mViewDataBinding;
     private V mViewModel;
 
-    /**
-     * Override for set binding variable
-     *
-     * @return variable id
-     */
     public abstract int getBindingVariable();
 
-    /**
-     * @return layout resource id
-     */
     public abstract
     @LayoutRes
     int getLayoutId();
 
-    /**
-     * Override for set view model
-     *
-     * @return view model instance
-     */
     public abstract V getViewModel();
 
     @Override
@@ -104,11 +90,6 @@ public abstract class BaseActivity <T extends ViewDataBinding, V extends BaseVie
 
     public boolean isNetworkConnected() {
         return NetworkUtils.isNetworkConnected(getApplicationContext());
-    }
-
-    public void openActivityOnTokenExpire() {
-       // startActivity(LoginActivity.newIntent(this));
-        finish();
     }
 
     public void performDependencyInjection() {

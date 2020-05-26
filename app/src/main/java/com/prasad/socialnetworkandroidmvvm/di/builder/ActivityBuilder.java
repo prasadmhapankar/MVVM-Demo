@@ -1,7 +1,7 @@
 package com.prasad.socialnetworkandroidmvvm.di.builder;
 
-import com.prasad.socialnetworkandroidmvvm.ui.main.MainActivity;
 import com.prasad.socialnetworkandroidmvvm.ui.login.LoginActivity;
+import com.prasad.socialnetworkandroidmvvm.ui.main.MainActivity;
 import com.prasad.socialnetworkandroidmvvm.ui.register.RegisterActivity;
 import com.prasad.socialnetworkandroidmvvm.ui.splash.SplashActivity;
 
@@ -26,4 +26,5 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector
     abstract RegisterActivity bindRegisterActivity();
+
 }

@@ -50,12 +50,6 @@ public class AppModule {
     }
 
     @Provides
-    @ApiInfo
-    String provideAccessToken() {
-        return BuildConfig.ACCESS_TOKEN;
-    }
-
-    @Provides
     @Singleton
     Context provideContext(Application application) {
         return application;
